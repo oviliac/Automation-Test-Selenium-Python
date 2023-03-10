@@ -36,6 +36,7 @@ class HomePage:
     product_72_price = "div.item-box .product-item[data-productid='72'] .details .add-info .prices .price.actual-price"
     product_72_cpu_option = "#product_attribute_72_5_18_52"
     product_72_add_cart = "#add-to-cart-button-72"
+    product_72_title = ".product-name > h1:nth-child(1)"
     notification = "#bar-notification"
 
 class CartPage:

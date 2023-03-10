@@ -131,7 +131,7 @@ class TestCart1(unittest.TestCase):
             # select product 72
             product_price_2 = driver.find_element(By.CSS_SELECTOR, HomePage.product_72_price).text
             driver.find_element(By.CSS_SELECTOR, HomePage.product_72).click()
-            product_2 = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".product-name > h1:nth-child(1)"))).text
+            product_2 = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, HomePage.product_72_title))).text
             self.assertEqual("Build your own cheap computer", product_2)
 
             driver.find_element(By.CSS_SELECTOR, HomePage.product_72_cpu_option).click()
@@ -185,7 +185,7 @@ class TestCart1(unittest.TestCase):
             # select product 72
             product_price_2 = driver.find_element(By.CSS_SELECTOR, HomePage.product_72_price).text
             driver.find_element(By.CSS_SELECTOR, HomePage.product_72).click()
-            product_2 = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".product-name > h1:nth-child(1)"))).text
+            product_2 = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, HomePage.product_72_title))).text
             self.assertEqual("Build your own cheap computer", product_2)
 
             driver.find_element(By.CSS_SELECTOR, HomePage.product_72_cpu_option).click()
@@ -245,7 +245,7 @@ class TestCart1(unittest.TestCase):
             # select product 72
             product_price_2 = driver.find_element(By.CSS_SELECTOR, HomePage.product_72_price).text
             driver.find_element(By.CSS_SELECTOR, HomePage.product_72).click()
-            product_2 = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".product-name > h1:nth-child(1)"))).text
+            product_2 = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, HomePage.product_72_title))).text
             self.assertEqual("Build your own cheap computer", product_2)
 
             driver.find_element(By.CSS_SELECTOR, HomePage.product_72_cpu_option).click()

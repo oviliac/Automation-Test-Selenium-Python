@@ -12,6 +12,12 @@ class DataRegisterInvalid:
     email = "awqqhjd@xsasai.com"
     password = "1234567"
     confirmpassword = "1234567"
+    email_no_at = "pdndtgamdil.com"
+    email_no_dot = "pdndt@gamdilcom"
+    email_no_domain = "pdndt@"
+    email_registered = "awqqhjd@xsasai.com"
+    short_password = "12345"
+    mismatch_password = ["123457", "123456"]
 
 class DataRegister:
     baseURL = "https://demowebshop.tricentis.com/"

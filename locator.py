@@ -1,0 +1,13 @@
+class RegisterPage:
+    gender = "gender-male"
+    firstname = "FirstName"
+    lastname = "LastName"
+    email = "Email"
+    password = "Password"
+    confirmpassword = "ConfirmPassword"
+    registerbutton = "register-button"
+    result = "result"
+    error_validation = "field-validation-error"
+    error_summary = "validation-summary-errors"
+    error_password = ".field-validation-error[data-valmsg-for='Password']"
+    error_confirmpassword = ".field-validation-error[data-valmsg-for='ConfirmPassword']"

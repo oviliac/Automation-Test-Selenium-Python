@@ -65,12 +65,12 @@ class TestRegister(unittest.TestCase):
     def test_04_empty_first_name(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/register")
-        # driver.find_element(By.ID, "gender-male").click()
+        driver.find_element(By.ID, "gender-male").click()
         driver.find_element(By.ID, "FirstName").send_keys("")
-        driver.find_element(By.ID, "LastName").send_keys("a")
-        driver.find_element(By.ID, "Email").send_keys("ad1add@sqsqs.com")
-        driver.find_element(By.ID, "Password").send_keys("123456")
-        driver.find_element(By.ID, "ConfirmPassword").send_keys("123456")
+        driver.find_element(By.ID, "LastName").send_keys(f"{random_string()}{DataRegister.lastname}")
+        driver.find_element(By.ID, "Email").send_keys(f"{random_string()}{DataRegister.email}") 
+        driver.find_element(By.ID, "Password").send_keys(DataRegister.password)
+        driver.find_element(By.ID, "ConfirmPassword").send_keys(DataRegister.confirmpassword)
         driver.find_element(By.ID, "register-button").click()
         data = driver.find_element(By.CLASS_NAME, "field-validation-error").text
         self.assertIn("First name is required.", data)
@@ -78,12 +78,12 @@ class TestRegister(unittest.TestCase):
     def test_05_empty_last_name(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/register")
-        # driver.find_element(By.ID, "gender-male").click()
-        driver.find_element(By.ID, "FirstName").send_keys("a")
+        driver.find_element(By.ID, "gender-male").click()
+        driver.find_element(By.ID, "FirstName").send_keys(f"{random_string()}{DataRegister.firstname}")
         driver.find_element(By.ID, "LastName").send_keys("")
-        driver.find_element(By.ID, "Email").send_keys("adad@sqsqs.com")
-        driver.find_element(By.ID, "Password").send_keys("123456")
-        driver.find_element(By.ID, "ConfirmPassword").send_keys("123456")
+        driver.find_element(By.ID, "Email").send_keys(f"{random_string()}{DataRegister.email}") 
+        driver.find_element(By.ID, "Password").send_keys(DataRegister.password)
+        driver.find_element(By.ID, "ConfirmPassword").send_keys(DataRegister.confirmpassword)
         driver.find_element(By.ID, "register-button").click()
         data = driver.find_element(By.CLASS_NAME, "field-validation-error").text
         self.assertIn("Last name is required.", data)
@@ -91,12 +91,12 @@ class TestRegister(unittest.TestCase):
     def test_06_empty_email(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/register")
-        # driver.find_element(By.ID, "gender-male").click()
-        driver.find_element(By.ID, "FirstName").send_keys("a")
-        driver.find_element(By.ID, "LastName").send_keys("a")
+        driver.find_element(By.ID, "gender-male").click()
+        driver.find_element(By.ID, "FirstName").send_keys(f"{random_string()}{DataRegister.firstname}")
+        driver.find_element(By.ID, "LastName").send_keys(f"{random_string()}{DataRegister.lastname}")
         driver.find_element(By.ID, "Email").send_keys("")
-        driver.find_element(By.ID, "Password").send_keys("123456")
-        driver.find_element(By.ID, "ConfirmPassword").send_keys("123456")
+        driver.find_element(By.ID, "Password").send_keys(DataRegister.password)
+        driver.find_element(By.ID, "ConfirmPassword").send_keys(DataRegister.confirmpassword)
         driver.find_element(By.ID, "register-button").click()
         data = driver.find_element(By.CLASS_NAME, "field-validation-error").text
         self.assertIn("Email is required.", data)
@@ -104,10 +104,10 @@ class TestRegister(unittest.TestCase):
     def test_07_empty_password(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/register")
-        # driver.find_element(By.ID, "gender-male").click()
-        driver.find_element(By.ID, "FirstName").send_keys("a")
-        driver.find_element(By.ID, "LastName").send_keys("a")
-        driver.find_element(By.ID, "Email").send_keys("pdndt@gamdil.com")
+        driver.find_element(By.ID, "gender-male").click()
+        driver.find_element(By.ID, "FirstName").send_keys(f"{random_string()}{DataRegister.firstname}")
+        driver.find_element(By.ID, "LastName").send_keys(f"{random_string()}{DataRegister.lastname}")
+        driver.find_element(By.ID, "Email").send_keys(f"{random_string()}{DataRegister.email}") 
         driver.find_element(By.ID, "Password").send_keys("")
         driver.find_element(By.ID, "ConfirmPassword").send_keys("")
         driver.find_element(By.ID, "register-button").click()
@@ -117,11 +117,11 @@ class TestRegister(unittest.TestCase):
     def test_08_empty_confirm_password(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/register")
-        # driver.find_element(By.ID, "gender-male").click()
-        driver.find_element(By.ID, "FirstName").send_keys("a")
-        driver.find_element(By.ID, "LastName").send_keys("a")
-        driver.find_element(By.ID, "Email").send_keys("pdndt@gamdil.com")
-        driver.find_element(By.ID, "Password").send_keys("123456")
+        driver.find_element(By.ID, "gender-male").click()
+        driver.find_element(By.ID, "FirstName").send_keys(f"{random_string()}{DataRegister.firstname}")
+        driver.find_element(By.ID, "LastName").send_keys(f"{random_string()}{DataRegister.lastname}")
+        driver.find_element(By.ID, "Email").send_keys(f"{random_string()}{DataRegister.email}") 
+        driver.find_element(By.ID, "Password").send_keys(DataRegister.password)
         driver.find_element(By.ID, "ConfirmPassword").send_keys("")
         driver.find_element(By.ID, "register-button").click()
         data = driver.find_element(By.CLASS_NAME, "field-validation-error").text
@@ -130,12 +130,12 @@ class TestRegister(unittest.TestCase):
     def test_09_invalid_email_format_without_At_symbol(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/register")
-        # driver.find_element(By.ID, "gender-male").click()
-        driver.find_element(By.ID, "FirstName").send_keys("a")
-        driver.find_element(By.ID, "LastName").send_keys("a")
+        driver.find_element(By.ID, "gender-male").click()
+        driver.find_element(By.ID, "FirstName").send_keys(f"{random_string()}{DataRegister.firstname}")
+        driver.find_element(By.ID, "LastName").send_keys(f"{random_string()}{DataRegister.lastname}")
         driver.find_element(By.ID, "Email").send_keys("pdndtgamdil.com")
-        driver.find_element(By.ID, "Password").send_keys("123456")
-        driver.find_element(By.ID, "ConfirmPassword").send_keys("123456")
+        driver.find_element(By.ID, "Password").send_keys(DataRegister.password)
+        driver.find_element(By.ID, "ConfirmPassword").send_keys(DataRegister.confirmpassword)
         driver.find_element(By.ID, "register-button").click()
         data = driver.find_element(By.CLASS_NAME, "field-validation-error").text
         self.assertIn("Wrong email", data)
@@ -143,12 +143,12 @@ class TestRegister(unittest.TestCase):
     def test_10_invalid_email_format_without_dot(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/register")
-        # driver.find_element(By.ID, "gender-male").click()
-        driver.find_element(By.ID, "FirstName").send_keys("a")
-        driver.find_element(By.ID, "LastName").send_keys("a")
+        driver.find_element(By.ID, "gender-male").click()
+        driver.find_element(By.ID, "FirstName").send_keys(f"{random_string()}{DataRegister.firstname}")
+        driver.find_element(By.ID, "LastName").send_keys(f"{random_string()}{DataRegister.lastname}")
         driver.find_element(By.ID, "Email").send_keys("pdndt@gamdilcom")
-        driver.find_element(By.ID, "Password").send_keys("123456")
-        driver.find_element(By.ID, "ConfirmPassword").send_keys("123456")
+        driver.find_element(By.ID, "Password").send_keys(DataRegister.password)
+        driver.find_element(By.ID, "ConfirmPassword").send_keys(DataRegister.confirmpassword)
         driver.find_element(By.ID, "register-button").click()
         data = driver.find_element(By.CLASS_NAME, "field-validation-error").text
         self.assertIn("Wrong email", data)
@@ -156,12 +156,12 @@ class TestRegister(unittest.TestCase):
     def test_11_invalid_email_format_without_domain(self):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/register")
-        # driver.find_element(By.ID, "gender-male").click()
-        driver.find_element(By.ID, "FirstName").send_keys("a")
-        driver.find_element(By.ID, "LastName").send_keys("a")
-        driver.find_element(By.ID, "Email").send_keys("pdndt@gamdilcom")
-        driver.find_element(By.ID, "Password").send_keys("123456")
-        driver.find_element(By.ID, "ConfirmPassword").send_keys("123456")
+        driver.find_element(By.ID, "gender-male").click()
+        driver.find_element(By.ID, "FirstName").send_keys(f"{random_string()}{DataRegister.firstname}")
+        driver.find_element(By.ID, "LastName").send_keys(f"{random_string()}{DataRegister.lastname}")
+        driver.find_element(By.ID, "Email").send_keys("pdndt@")
+        driver.find_element(By.ID, "Password").send_keys(DataRegister.password)
+        driver.find_element(By.ID, "ConfirmPassword").send_keys(DataRegister.confirmpassword)
         driver.find_element(By.ID, "register-button").click()
         data = driver.find_element(By.CLASS_NAME, "field-validation-error").text
         self.assertIn("Wrong email", data)
@@ -170,11 +170,11 @@ class TestRegister(unittest.TestCase):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/register")
         driver.find_element(By.ID, "gender-male").click()
-        driver.find_element(By.ID, "FirstName").send_keys("a")
-        driver.find_element(By.ID, "LastName").send_keys("a")
+        driver.find_element(By.ID, "FirstName").send_keys(f"{random_string()}{DataRegister.firstname}")
+        driver.find_element(By.ID, "LastName").send_keys(f"{random_string()}{DataRegister.lastname}")
         driver.find_element(By.ID, "Email").send_keys("awqqhjd@xsasai.com")
-        driver.find_element(By.ID, "Password").send_keys("1234567")
-        driver.find_element(By.ID, "ConfirmPassword").send_keys("1234567")
+        driver.find_element(By.ID, "Password").send_keys(DataRegister.password)
+        driver.find_element(By.ID, "ConfirmPassword").send_keys(DataRegister.confirmpassword)
         driver.find_element(By.ID, "register-button").click()
         data = driver.find_element(By.CLASS_NAME, "validation-summary-errors").text
         self.assertEqual("The specified email already exists", data)
@@ -183,9 +183,9 @@ class TestRegister(unittest.TestCase):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/register")
         driver.find_element(By.ID, "gender-male").click()
-        driver.find_element(By.ID, "FirstName").send_keys("a")
-        driver.find_element(By.ID, "LastName").send_keys("a")
-        driver.find_element(By.ID, "Email").send_keys("awqqhjd@xsasai.com")
+        driver.find_element(By.ID, "FirstName").send_keys(f"{random_string()}{DataRegister.firstname}")
+        driver.find_element(By.ID, "LastName").send_keys(f"{random_string()}{DataRegister.lastname}")
+        driver.find_element(By.ID, "Email").send_keys(f"{random_string()}{DataRegister.email}") 
         driver.find_element(By.ID, "Password").send_keys("12345")
         driver.find_element(By.ID, "ConfirmPassword").send_keys("12345")
         driver.find_element(By.ID, "register-button").click()
@@ -196,9 +196,9 @@ class TestRegister(unittest.TestCase):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/register")
         driver.find_element(By.ID, "gender-male").click()
-        driver.find_element(By.ID, "FirstName").send_keys("a")
-        driver.find_element(By.ID, "LastName").send_keys("a")
-        driver.find_element(By.ID, "Email").send_keys("awqqhjd@xsasai.com")
+        driver.find_element(By.ID, "FirstName").send_keys(f"{random_string()}{DataRegister.firstname}")
+        driver.find_element(By.ID, "LastName").send_keys(f"{random_string()}{DataRegister.lastname}")
+        driver.find_element(By.ID, "Email").send_keys(f"{random_string()}{DataRegister.email}") 
         driver.find_element(By.ID, "Password").send_keys("123457")
         driver.find_element(By.ID, "ConfirmPassword").send_keys("123456")
         driver.find_element(By.ID, "register-button").click()

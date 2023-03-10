@@ -27,3 +27,26 @@ class RecoveryPage:
     email = "Email"
     recover_button = ".password-recovery-button[type=submit]"
     result = ".result"
+
+class HomePage:
+    cart_qty = ".cart-qty"
+    product_31 = "div.item-box .product-item[data-productid='31'] .details .add-info .buttons input[type=button]"
+    product_31_price = "div.item-box .product-item[data-productid='31'] .details .add-info .prices .price.actual-price"
+    product_72 = "div.item-box .product-item[data-productid='72'] .details .add-info .buttons input[type=button]"
+    product_72_price = "div.item-box .product-item[data-productid='72'] .details .add-info .prices .price.actual-price"
+    product_72_cpu_option = "#product_attribute_72_5_18_52"
+    product_72_add_cart = "#add-to-cart-button-72"
+    notification = "#bar-notification"
+
+class CartPage:
+    cart_item_checkbox = ".remove-from-cart input[type='checkbox']"
+    update_cart_button = ".update-cart-button"
+    cart_single_product_qty = "tbody .cart-item-row .qty-input"
+    cart_single_product_subtotal = "tbody .cart-item-row .product-subtotal"
+    cart_multi_product_qty_1 = "tr.cart-item-row:nth-child(1) .qty-input"
+    cart_multi_product_qty_2 = "tr.cart-item-row:nth-child(2) .qty-input"
+    cart_multi_product_subtotal_1 = "tr.cart-item-row:nth-child(1) .product-subtotal"
+    cart_multi_product_subtotal_2 = "tr.cart-item-row:nth-child(2) .product-subtotal"
+    alert_box = "#terms-of-service-warning-box"
+    checkout_button = "#checkout"
+    accept_tos = "#termsofservice"

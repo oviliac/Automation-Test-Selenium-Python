@@ -10,6 +10,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.service import Service
 
+from data import DataRegisterInvalid, DataRegister, random_string
+
 class TestRegister(unittest.TestCase):
 
     def setUp(self):
@@ -19,19 +21,18 @@ class TestRegister(unittest.TestCase):
 
     def test_01_success_register_gendermale(self):
         driver = self.browser
-        driver.get("https://demowebshop.tricentis.com/register")
+        driver.get(f"{DataRegister.baseURL}register")
         driver.find_element(By.ID, "gender-male").click()
-        driver.find_element(By.ID, "FirstName").send_keys("a")
-        driver.find_element(By.ID, "LastName").send_keys("a")
-        driver.find_element(By.ID, "Email").send_keys("awqqhjd@xsasai.com")
-        driver.find_element(By.ID, "Password").send_keys("1234567")
-        driver.find_element(By.ID, "ConfirmPassword").send_keys("1234567")
+        driver.find_element(By.ID, "FirstName").send_keys(f"{random_string()}{DataRegister.firstname}")
+        driver.find_element(By.ID, "LastName").send_keys(f"{random_string()}{DataRegister.lastname}")
+        driver.find_element(By.ID, "Email").send_keys(f"{random_string()}{DataRegister.email}")
+        driver.find_element(By.ID, "Password").send_keys(DataRegister.password)
+        driver.find_element(By.ID, "ConfirmPassword").send_keys(DataRegister.confirmpassword)
         driver.find_element(By.ID, "register-button").click()
         respon = driver.find_element(By.CLASS_NAME, "result").text
         self.assertIn("Your registration completed", respon)
         registerresult_url = driver.current_url
         self.assertEqual(registerresult_url, "https://demowebshop.tricentis.com/registerresult/1")
-        # edit lagi
     
     def test_02_empty_all_field(self):
         driver = self.browser
@@ -50,11 +51,11 @@ class TestRegister(unittest.TestCase):
         driver = self.browser
         driver.get("https://demowebshop.tricentis.com/register")
         # driver.find_element(By.ID, "gender-male").click() user can register without selecting gender
-        driver.find_element(By.ID, "FirstName").send_keys("a")
-        driver.find_element(By.ID, "LastName").send_keys("a")
-        driver.find_element(By.ID, "Email").send_keys("adfjuaadad@gmail.com")
-        driver.find_element(By.ID, "Password").send_keys("1234567")
-        driver.find_element(By.ID, "ConfirmPassword").send_keys("1234567")
+        driver.find_element(By.ID, "FirstName").send_keys(f"{random_string()}{DataRegister.firstname}")
+        driver.find_element(By.ID, "LastName").send_keys(f"{random_string()}{DataRegister.lastname}")
+        driver.find_element(By.ID, "Email").send_keys(f"{random_string()}{DataRegister.email}")
+        driver.find_element(By.ID, "Password").send_keys(DataRegister.password)
+        driver.find_element(By.ID, "ConfirmPassword").send_keys(DataRegister.confirmpassword)
         driver.find_element(By.ID, "register-button").click()
         respon = driver.find_element(By.CLASS_NAME, "result").text
         self.assertIn("Your registration completed", respon)
@@ -137,7 +138,7 @@ class TestRegister(unittest.TestCase):
         driver.find_element(By.ID, "ConfirmPassword").send_keys("123456")
         driver.find_element(By.ID, "register-button").click()
         data = driver.find_element(By.CLASS_NAME, "field-validation-error").text
-        self.assertIn("Password is required.", data)
+        self.assertIn("Wrong email", data)
 
     def test_10_invalid_email_format_without_dot(self):
         driver = self.browser
@@ -150,7 +151,7 @@ class TestRegister(unittest.TestCase):
         driver.find_element(By.ID, "ConfirmPassword").send_keys("123456")
         driver.find_element(By.ID, "register-button").click()
         data = driver.find_element(By.CLASS_NAME, "field-validation-error").text
-        self.assertIn("Password is required.", data)
+        self.assertIn("Wrong email", data)
 
     def test_11_invalid_email_format_without_domain(self):
         driver = self.browser
@@ -163,7 +164,7 @@ class TestRegister(unittest.TestCase):
         driver.find_element(By.ID, "ConfirmPassword").send_keys("123456")
         driver.find_element(By.ID, "register-button").click()
         data = driver.find_element(By.CLASS_NAME, "field-validation-error").text
-        self.assertIn("Password is required.", data)
+        self.assertIn("Wrong email", data)
 
     def test_12_register_using_registered_user_email(self):
         driver = self.browser

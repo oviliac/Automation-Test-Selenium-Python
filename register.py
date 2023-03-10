@@ -109,7 +109,7 @@ class TestRegister(unittest.TestCase):
         driver.find_element(By.ID, "LastName").send_keys("a")
         driver.find_element(By.ID, "Email").send_keys("pdndt@gamdil.com")
         driver.find_element(By.ID, "Password").send_keys("")
-        driver.find_element(By.ID, "ConfirmPassword").send_keys("123456")
+        driver.find_element(By.ID, "ConfirmPassword").send_keys("")
         driver.find_element(By.ID, "register-button").click()
         data = driver.find_element(By.CLASS_NAME, "field-validation-error").text
         self.assertIn("Password is required.", data)

@@ -24,4 +24,4 @@ class DataRegister:
 class DataLogin:
     baseURL = "https://demowebshop.tricentis.com/"
     email = "oviliach123@gmail.com"
-    password = "ovi123"
+    password = "123456"

@@ -9,7 +9,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.service import Service
-from data import DataLogin
+from data import DataLogin, DataLoginInvalid
 from locator import LoginPage, RecoveryPage
 
 class TestLogin(unittest.TestCase):
@@ -33,8 +33,8 @@ class TestLogin(unittest.TestCase):
     def test_02_invalid_username_and_password(self):
         driver = self.browser
         driver.get(f"{DataLogin.baseURL}login")
-        driver.find_element(By.ID, LoginPage.email).send_keys("awqqhj@xsasai.com")
-        driver.find_element(By.ID, LoginPage.password).send_keys("1234567a")
+        driver.find_element(By.ID, LoginPage.email).send_keys(DataLoginInvalid.email)
+        driver.find_element(By.ID, LoginPage.password).send_keys(DataLoginInvalid.password)
         driver.find_element(By.CSS_SELECTOR, LoginPage.login_button).click()
         error1 = driver.find_element(By.CSS_SELECTOR, LoginPage.error_summary).text
         error2 = driver.find_element(By.CSS_SELECTOR, LoginPage.error_summary_detail).text
@@ -44,7 +44,7 @@ class TestLogin(unittest.TestCase):
     def test_03_invalid_username_and_valid_password(self):
         driver = self.browser
         driver.get(f"{DataLogin.baseURL}login")
-        driver.find_element(By.ID, LoginPage.email).send_keys("awqqhj@xsasai.com")
+        driver.find_element(By.ID, LoginPage.email).send_keys(DataLoginInvalid.email)
         driver.find_element(By.ID, LoginPage.password).send_keys(DataLogin.password)
         driver.find_element(By.CSS_SELECTOR, LoginPage.login_button).click()
         error1 = driver.find_element(By.CSS_SELECTOR, LoginPage.error_summary).text
@@ -56,7 +56,7 @@ class TestLogin(unittest.TestCase):
         driver = self.browser
         driver.get(f"{DataLogin.baseURL}login")
         driver.find_element(By.ID, LoginPage.email).send_keys(DataLogin.email)
-        driver.find_element(By.ID, LoginPage.password).send_keys("12345")
+        driver.find_element(By.ID, LoginPage.password).send_keys(DataLoginInvalid.password)
         driver.find_element(By.CSS_SELECTOR, LoginPage.login_button).click()
         error1 = driver.find_element(By.CSS_SELECTOR, LoginPage.error_summary).text
         error2 = driver.find_element(By.CSS_SELECTOR, LoginPage.error_summary_detail).text

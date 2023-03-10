@@ -6,7 +6,6 @@ def random_string(len=3):
     return ''.join(random.choice(letters) for i in range(len))
 
 class DataRegisterInvalid:
-    baseURL = "https://demowebshop.tricentis.com/"
     firstname = "a"
     lastname = "a"
     email = "awqqhjd@xsasai.com"
@@ -31,3 +30,8 @@ class DataLogin:
     baseURL = "https://demowebshop.tricentis.com/"
     email = "oviliach123@gmail.com"
     password = "123456"
+
+
+class DataLoginInvalid:
+    email = "awqqhj@xsasai.com"
+    password = "1234567a"

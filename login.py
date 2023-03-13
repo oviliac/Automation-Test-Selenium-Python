@@ -30,7 +30,7 @@ class TestLogin(unittest.TestCase):
         data = driver.find_element(By.CSS_SELECTOR, LoginPage.profile_info).text
         self.assertEqual(DataLogin.email, data)
 
-    def test_02_invalid_username_and_password(self):
+    def test_02_invalid_email_and_password(self):
         driver = self.browser
         driver.get(f"{DataLogin.baseURL}login")
         driver.find_element(By.ID, LoginPage.email).send_keys(DataLoginInvalid.email)
@@ -41,7 +41,7 @@ class TestLogin(unittest.TestCase):
         self.assertEqual("Login was unsuccessful. Please correct the errors and try again.", error1)
         self.assertEqual("No customer account found", error2)
 
-    def test_03_invalid_username_and_valid_password(self):
+    def test_03_invalid_email_and_valid_password(self):
         driver = self.browser
         driver.get(f"{DataLogin.baseURL}login")
         driver.find_element(By.ID, LoginPage.email).send_keys(DataLoginInvalid.email)
@@ -52,7 +52,7 @@ class TestLogin(unittest.TestCase):
         self.assertEqual("Login was unsuccessful. Please correct the errors and try again.", error1)
         self.assertEqual("No customer account found", error2)
         
-    def test_04_valid_username_and_invalid_password(self):
+    def test_04_valid_email_and_invalid_password(self):
         driver = self.browser
         driver.get(f"{DataLogin.baseURL}login")
         driver.find_element(By.ID, LoginPage.email).send_keys(DataLogin.email)
